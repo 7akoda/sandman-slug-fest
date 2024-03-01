@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Sandman Slug Fest",
+  "description": "Runs a script on any site popping up a target that is able to be clicked, with a notification sound when rendered and when clicked.",
+  "version": "1.0",
+  "permissions": ["scripting"],
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "externally_connectable": {
+    "matches": ["*://*.google.com/*"]
+},
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "contentscript.js"
+      ],
+      "matches": [
+          "<all_urls>"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "audio/tf2-notification-sound.mp3",
+        "audio/critical-hit-sounds-effect.mp3",
+        "images/tf2baseball.png",
+        "popup.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
